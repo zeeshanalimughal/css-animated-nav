@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <title>CSS NAV</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="list active" data-attr="#b90056"><a href="#"><i class="fa fa-home"
+                            aria-hidden="true"></a></i>
+                </li>
+                <li class="list" data-attr="#4e03c8"><a href="#"><i class="fa fa-user" aria-hidden="true"></a></i>
+                </li>
+                <li class="list" data-attr="#004cbd"><a href="#"><i class="fa fa-comment" aria-hidden="true"></a></i>
+                </li>
+                <li class="list" data-attr="#02a41a"><a href="#"><i class="fa fa-question-circle"
+                            aria-hidden="true"></a></i>
+                </li>
+                <li class="list" data-attr="#bf4204"><a href="#"><i class="fa fa-cog" aria-hidden="true"></a></i>
+                </li>
+                <div class="indicator"></div>
+
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        let lists = document.querySelectorAll(".list");
+        let container = document.querySelector(".container");
+
+        lists.forEach(function (list) {
+            list.addEventListener("mouseover", function () {
+                lists.forEach(function (li) {
+                    li.classList.remove("active");
+                })
+                this.classList.add("active")
+                console.log(this.getAttribute('data-attr'))
+                var color = this.getAttribute('data-attr')
+                container.style.backgroundColor = color
+            })
+        })
+    </script>
+</body>
+
+</html>
